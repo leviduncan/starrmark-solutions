@@ -4,74 +4,63 @@ export function TrustHeading() {
       <div className="mx-auto max-w-4xl px-6 text-center">
         <span className="inline-flex items-center gap-2 rounded-full bg-cream px-3 py-1 text-xs uppercase tracking-[0.2em] text-ink/70 ring-1 ring-rule">
           <span className="h-1.5 w-1.5 rounded-full bg-lime-2" />
-          Built for regulated industries
+          Why investors work with us
         </span>
         <h2 className="font-display mt-6 text-4xl leading-[1.02] text-ink sm:text-6xl">
-          OPERATE WITH
+          A BROKER THAT
           <br />
-          EXACTING PRECISION.
+          THINKS LIKE AN OPERATOR.
         </h2>
         <p className="mx-auto mt-6 max-w-2xl text-base text-muted sm:text-lg">
-          Lending, healthcare, and financial services live or die on
-          repeatable accuracy. We design systems where compliance,
-          auditability, and customer experience aren&apos;t three competing
-          tradeoffs — they&apos;re the same job.
+          Our incentive is the right structure for the deal, not a single
+          product on a shelf. Each submission is built around the questions a
+          capital source will ask, with the documentation organized to answer
+          them.
         </p>
-
-        <div className="mx-auto mt-10 flex flex-wrap items-center justify-center gap-2 text-xs">
-          {["SOC 2 Type II", "HIPAA", "PCI DSS", "GLBA", "State NMLS"].map(
-            (b) => (
-              <span
-                key={b}
-                className="inline-flex items-center gap-1.5 rounded-full bg-cream px-3 py-1 font-medium text-ink/75 ring-1 ring-rule"
-              >
-                <span className="h-1.5 w-1.5 rounded-full bg-lime-2" />
-                {b}
-              </span>
-            )
-          )}
-        </div>
       </div>
 
       <div className="mx-auto mt-16 grid max-w-6xl gap-5 px-6 lg:grid-cols-3">
         <FeatureCard variant="dark">
           <p className="text-xs uppercase tracking-[0.2em] text-lime">
-            Portfolio
+            Packaging
           </p>
           <h3 className="font-display mt-3 text-2xl text-white">
-            Risk you can see in real time.
+            Lender-ready submissions.
           </h3>
           <p className="mt-2 text-sm text-white/65">
-            Live dashboards across originations, delinquency, and concentration
-            — so credit and ops see the same number at the same time.
+            Complete, organized deal packages — borrower narrative, financials,
+            comps, exit — so capital sources can move with confidence instead
+            of asking for the same thing twice.
           </p>
           <ChartArt />
         </FeatureCard>
 
         <FeatureCard variant="light">
           <p className="text-xs uppercase tracking-[0.2em] text-ink/60">
-            Collections
+            Posture
           </p>
           <h3 className="font-display mt-3 text-2xl text-ink">
-            Recovery you can forecast.
+            Broker, not lender.
           </h3>
           <p className="mt-2 text-sm text-muted">
-            Roll rates, cure curves, and bucket movement — modeled per
-            portfolio segment, not as a single average that hides the tails.
+            We don&apos;t have a quota on one product. We&apos;ll point you to
+            the right capital structure — or tell you it isn&apos;t a deal
+            we&apos;d underwrite ourselves.
           </p>
           <RingArt />
         </FeatureCard>
 
         <FeatureCard variant="light">
           <p className="text-xs uppercase tracking-[0.2em] text-ink/60">
-            Revenue cycle
+            Context
           </p>
           <h3 className="font-display mt-3 text-2xl text-ink">
-            Claims you can close.
+            Lowcountry on the ground.
           </h3>
           <p className="mt-2 text-sm text-muted">
-            From eligibility to denial appeal, with the payer mix tracked
-            against your actual book — not last year&apos;s benchmark.
+            Charleston, Summerville, Goose Creek, Moncks Corner — submarkets
+            we know well enough to read past the comps and price the actual
+            risk.
           </p>
           <LedgerArt />
         </FeatureCard>
@@ -102,95 +91,79 @@ function FeatureCard({
 }
 
 function ChartArt() {
-  const heights = [30, 45, 55, 40, 70, 95, 60];
   return (
-    <div className="mt-6 flex h-32 items-end gap-1.5">
-      {heights.map((h, i) => (
-        <div
-          key={i}
-          className="flex-1 rounded-md"
-          style={{
-            height: `${h}%`,
-            background:
-              i === 5
-                ? "var(--lime)"
-                : i === 4 || i === 6
-                  ? "rgba(200,255,62,0.55)"
-                  : "rgba(255,255,255,0.18)",
-          }}
-        />
+    <div className="mt-6 flex flex-col gap-2">
+      {[
+        { label: "Borrower narrative", w: 90 },
+        { label: "Financials & rent roll", w: 78 },
+        { label: "Comps & valuation", w: 84 },
+        { label: "Exit & timeline", w: 70 },
+      ].map((row) => (
+        <div key={row.label}>
+          <div className="flex items-center justify-between text-[10px] uppercase tracking-wider text-white/55">
+            <span>{row.label}</span>
+            <span className="text-lime">✓</span>
+          </div>
+          <div className="mt-1 h-1.5 w-full overflow-hidden rounded-full bg-white/10">
+            <div
+              className="h-full rounded-full bg-lime"
+              style={{ width: `${row.w}%` }}
+            />
+          </div>
+        </div>
       ))}
     </div>
   );
 }
 
 function RingArt() {
-  const pct = 0.82;
-  const r = 42;
-  const c = 2 * Math.PI * r;
   return (
-    <div className="mt-6 grid h-32 place-items-center">
-      <div className="relative h-28 w-28">
-        <svg viewBox="0 0 100 100" className="h-full w-full -rotate-90">
-          <circle
-            cx="50"
-            cy="50"
-            r={r}
-            fill="none"
-            stroke="var(--rule)"
-            strokeWidth="10"
+    <div className="mt-6 grid h-32 grid-cols-7 items-end gap-1.5">
+      {[18, 22, 16, 10, 8, 4, 2].map((share, i) => (
+        <div key={i} className="flex h-full flex-col items-center justify-end">
+          <div
+            className="w-full rounded-md"
+            style={{
+              height: `${share * 4 + 10}%`,
+              background:
+                i === 0
+                  ? "var(--ink)"
+                  : i === 1
+                    ? "rgba(10,29,24,0.7)"
+                    : "rgba(10,29,24,0.35)",
+            }}
           />
-          <circle
-            cx="50"
-            cy="50"
-            r={r}
-            fill="none"
-            stroke="var(--ink)"
-            strokeWidth="10"
-            strokeDasharray={c}
-            strokeDashoffset={c * (1 - pct)}
-            strokeLinecap="round"
-          />
-        </svg>
-        <div className="absolute inset-0 grid place-items-center">
-          <div className="text-center">
-            <p className="font-display text-2xl text-ink">82%</p>
-            <p className="text-[10px] uppercase tracking-wider text-muted">
-              cure rate
-            </p>
-          </div>
         </div>
+      ))}
+      <div className="col-span-7 mt-1 flex justify-between text-[9px] uppercase tracking-wider text-muted">
+        <span>DSCR</span>
+        <span>Bridge</span>
+        <span>Other</span>
       </div>
     </div>
   );
 }
 
 function LedgerArt() {
+  const cities = ["Charleston", "Summerville", "Goose Creek", "Moncks Corner"];
   return (
     <div className="mt-6 flex flex-col gap-2">
-      <div className="rounded-xl bg-paper p-3 ring-1 ring-rule">
-        <div className="flex items-center justify-between">
-          <span className="text-[11px] uppercase tracking-wider text-muted">
-            Net collections
+      {cities.map((c, i) => (
+        <div
+          key={c}
+          className="flex items-center justify-between rounded-xl bg-paper px-3 py-2.5 ring-1 ring-rule"
+        >
+          <span className="flex items-center gap-2 text-sm font-medium text-ink">
+            <span className="grid h-5 w-5 place-items-center rounded-full bg-ink text-[10px] font-mono text-lime">
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            {c}
           </span>
-          <span className="rounded-full bg-lime-soft px-2 py-0.5 text-[10px] font-medium text-ink">
-            +18.4%
+          <span className="text-[10px] uppercase tracking-wider text-muted">
+            Active
           </span>
         </div>
-        <p className="font-display mt-1 text-2xl text-ink">$3.41M</p>
-      </div>
-      <div className="rounded-xl bg-paper p-3 ring-1 ring-rule">
-        <div className="flex items-center justify-between text-[11px] uppercase tracking-wider text-muted">
-          <span>Days in A/R</span>
-          <span>27.4</span>
-        </div>
-        <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-rule">
-          <div
-            className="h-full rounded-full bg-ink"
-            style={{ width: "62%" }}
-          />
-        </div>
-      </div>
+      ))}
     </div>
   );
 }

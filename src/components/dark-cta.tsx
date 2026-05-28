@@ -18,31 +18,28 @@ export function DarkCTA() {
           <div className="relative grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-end">
             <div>
               <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white/80 ring-1 ring-white/15">
-                Ready when you are
+                Next step
               </span>
               <h2 className="font-display mt-6 text-4xl leading-none text-white sm:text-6xl">
-                BUILD WITH A
+                BRING US
                 <br />
-                PARTNER YOUR
-                <br />
-                <span className="text-lime">EXAMINERS TRUST.</span>
+                YOUR DEAL.
               </h2>
               <p className="mt-6 max-w-md text-base text-white/70">
-                30 minutes, NDA included. Bring the workflow that&apos;s
-                holding back your book — we&apos;ll tell you whether
-                we&apos;re the right team to fix it.
+                Share the basics — property, strategy, timing — and we&apos;ll
+                come back with a structured path forward, or a clear no.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
-                  href="#"
+                  href="/start"
                   className="inline-flex h-12 items-center gap-2 rounded-full bg-lime px-6 text-sm font-semibold text-ink transition hover:bg-lime-2"
                 >
-                  Book a consultation →
+                  Start Your Loan Profile →
                 </Link>
                 <a
                   href="mailto:hello@starrmarksolutions.com"
-                  className="inline-flex h-12 items-center gap-2 rounded-full bg-white/10 px-5 text-sm font-medium text-white ring-1 ring-white/15 transition hover:bg-white/15"
+                  className="inline-flex h-12 items-center gap-2 rounded-full bg-white/6 px-5 text-sm font-medium text-white ring-1 ring-white/15 transition hover:bg-white/15"
                 >
                   hello@starrmarksolutions.com
                 </a>
@@ -51,9 +48,9 @@ export function DarkCTA() {
 
             <div className="grid grid-cols-2 gap-3">
               <MetricChip label="Response" value="< 24h" tone="dark" />
-              <MetricChip label="NDA on file" value="Day 1" tone="lime" />
-              <MetricChip label="Pilots" value="6 weeks" tone="lime" />
-              <MetricChip label="Compliance" value="SOC 2" tone="dark" />
+              <MetricChip label="Region" value="Lowcountry" tone="lime" />
+              <MetricChip label="Purpose" value="Business-purpose" tone="lime" />
+              <MetricChip label="Collateral" value="Non-owner-occ." tone="dark" />
             </div>
           </div>
         </div>

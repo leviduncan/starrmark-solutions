@@ -17,66 +17,65 @@ export function Hero() {
         <div className="flex flex-col justify-center">
           <span className="inline-flex w-fit items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white/70 ring-1 ring-white/15">
             <span className="h-1.5 w-1.5 rounded-full bg-lime" />
-            Lending · Healthcare · Financial Services
+            Private Money Broker · Capital Advisor
           </span>
 
           <h1 className="font-display mt-6 text-5xl leading-[0.95] text-white sm:text-6xl lg:text-[5.25rem]">
-            PRECISION
+            PRIVATE CAPITAL
             <br />
-            SOLUTIONS FOR
+            FOR THE
             <br />
-            REGULATED INDUSTRIES.
+            CAROLINA LOWCOUNTRY.
           </h1>
 
           <p className="mt-7 max-w-md text-base text-white/70 sm:text-lg">
-            Starrmark partners with lenders, providers, and financial
-            institutions to ship the systems and processes that compliance,
-            scale, and customer trust demand.
+            StarrMark arranges business-purpose financing for real estate
+            investors, developers, and operators across Charleston and the
+            surrounding region. We are a broker and advisor —{" "}
+            <span className="text-white">not a lender</span>.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <Link
-              href="#contact"
+              href="/start"
               className="inline-flex h-12 items-center gap-2 rounded-full bg-lime px-6 text-sm font-semibold text-ink transition hover:bg-lime-2"
             >
-              Book a consultation
+              Start Your Loan Profile
               <span aria-hidden>→</span>
             </Link>
             <Link
-              href="#solutions"
+              href="/loan-programs"
               className="inline-flex h-12 items-center gap-2 rounded-full bg-white/10 px-5 text-sm font-medium text-white ring-1 ring-white/15 backdrop-blur transition hover:bg-white/20"
             >
-              <span className="grid h-6 w-6 place-items-center rounded-full bg-white text-ink">
-                <PlayIcon />
-              </span>
-              Explore our solutions
+              Explore Loan Programs
+              <span aria-hidden>→</span>
             </Link>
           </div>
 
           <div className="mt-12">
             <p className="text-xs uppercase tracking-[0.2em] text-white/40">
-              Built for the standards of
+              Submarkets we work
             </p>
-            <div className="mt-4 flex flex-wrap items-center gap-x-7 gap-y-3 text-white/55">
-              <LogoMark>SOC 2</LogoMark>
-              <LogoMark>HIPAA</LogoMark>
-              <LogoMark>PCI&nbsp;DSS</LogoMark>
-              <LogoMark>GLBA</LogoMark>
+            <div className="mt-4 flex flex-wrap items-center gap-x-7 gap-y-3 text-white/60">
+              <LogoMark>Charleston</LogoMark>
+              <LogoMark>Summerville</LogoMark>
+              <LogoMark>Goose Creek</LogoMark>
+              <LogoMark>Moncks Corner</LogoMark>
             </div>
           </div>
         </div>
 
         <div className="relative grid grid-cols-2 gap-4">
           <StatCard
-            label="Loans funded"
-            value="$2.4B"
-            sub="originated through our platforms"
+            label="Capital sources"
+            value="40+"
+            sub="private & institutional"
             tone="dark"
           />
           <StatCard
-            label="Claims processed"
-            value="1.8M"
-            sub="across 240+ provider locations"
+            label="Region"
+            value="843"
+            sub="Lowcountry-focused, not national"
             tone="lime"
           />
           <DashboardCard className="col-span-2" />
@@ -142,7 +141,15 @@ function StatCard({
 }
 
 function DashboardCard({ className = "" }: { className?: string }) {
-  const bars = [38, 52, 44, 70, 58, 86, 64];
+  const programs = [
+    { name: "DSCR", share: 38 },
+    { name: "Fix & Flip", share: 22 },
+    { name: "Bridge", share: 16 },
+    { name: "Ground-Up", share: 10 },
+    { name: "Small Comm.", share: 8 },
+    { name: "Portfolio", share: 4 },
+    { name: "Land", share: 2 },
+  ];
   return (
     <div
       className={
@@ -153,32 +160,34 @@ function DashboardCard({ className = "" }: { className?: string }) {
       <div className="flex items-start justify-between">
         <div>
           <p className="text-xs uppercase tracking-[0.18em] text-white/55">
-            Originations · this quarter
+            Program mix · trailing 12 months
           </p>
           <p className="font-display mt-2 text-3xl text-white">
-            $84.2M <span className="text-white/40">/ $100M target</span>
+            7 programs <span className="text-white/40">across the stack</span>
           </p>
         </div>
         <div className="flex items-center gap-1.5 rounded-full bg-lime/15 px-2.5 py-1 text-xs font-medium text-lime ring-1 ring-lime/30">
-          <span>▲</span> 18.4%
+          <span>●</span> Active
         </div>
       </div>
 
       <div className="mt-6 flex h-28 items-end gap-2">
-        {bars.map((h, i) => (
-          <div key={i} className="flex h-full flex-1 flex-col justify-end">
+        {programs.map((p, i) => (
+          <div key={p.name} className="flex h-full flex-1 flex-col justify-end">
             <div
               className="w-full rounded-md"
               style={{
-                height: `${h}%`,
+                height: `${Math.max(p.share * 2, 8)}%`,
                 background:
-                  i === 5
+                  i === 0
                     ? "linear-gradient(180deg, var(--lime) 0%, var(--lime-2) 100%)"
-                    : "rgba(255,255,255,0.15)",
+                    : i < 3
+                      ? "rgba(200,255,62,0.35)"
+                      : "rgba(255,255,255,0.15)",
               }}
             />
-            <span className="mt-2 text-[10px] uppercase tracking-wider text-white/35">
-              {["M", "T", "W", "T", "F", "S", "S"][i]}
+            <span className="mt-2 truncate text-[10px] uppercase tracking-wider text-white/35">
+              {p.name}
             </span>
           </div>
         ))}
@@ -186,9 +195,9 @@ function DashboardCard({ className = "" }: { className?: string }) {
 
       <div className="mt-5 grid grid-cols-3 gap-3 text-xs">
         {[
-          { k: "Approval rate", v: "82.4%" },
-          { k: "Time to fund", v: "1.9d" },
-          { k: "Default rate", v: "0.34%" },
+          { k: "Business purpose", v: "100%" },
+          { k: "Non-owner-occ.", v: "100%" },
+          { k: "Region", v: "Lowcountry" },
         ].map((m) => (
           <div
             key={m.k}
@@ -206,7 +215,7 @@ function DashboardCard({ className = "" }: { className?: string }) {
 function LogoMark({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex items-center gap-1.5 text-sm font-medium tracking-tight">
-      <span className="h-1.5 w-1.5 rounded-full bg-white/40" />
+      <span className="h-1.5 w-1.5 rounded-full bg-lime/60" />
       {children}
     </div>
   );
@@ -225,14 +234,6 @@ function ArrowUpRightIcon() {
     >
       <path d="M7 17L17 7" />
       <path d="M8 7h9v9" />
-    </svg>
-  );
-}
-
-function PlayIcon() {
-  return (
-    <svg viewBox="0 0 24 24" className="h-3 w-3" fill="currentColor">
-      <path d="M8 5v14l11-7z" />
     </svg>
   );
 }

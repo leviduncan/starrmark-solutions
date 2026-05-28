@@ -1,49 +1,67 @@
-const stats = [
-  { value: "$2.4B+", label: "Loans originated through our platforms" },
-  { value: "240+", label: "Provider locations on revenue cycle ops" },
-  { value: "98%", label: "Client retention across active engagements" },
-  { value: "0.34%", label: "Aggregate portfolio default rate" },
+const submarkets = [
+  {
+    name: "Charleston",
+    detail: "Peninsula, West Ashley, James Island, Mt. Pleasant",
+  },
+  { name: "Summerville", detail: "Dorchester County, Nexton, Cane Bay" },
+  { name: "Goose Creek", detail: "Berkeley County, Carnes Crossroads" },
+  { name: "Moncks Corner", detail: "Lakes & Berkeley submarkets" },
 ];
 
 export function StatsRow() {
   return (
-    <section className="bg-cream py-20 sm:py-24">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="mx-auto max-w-3xl">
-          <span className="inline-flex items-center gap-2 rounded-full bg-paper px-3 py-1 text-xs uppercase tracking-[0.2em] text-ink/70 ring-1 ring-rule">
-            <span className="h-1.5 w-1.5 rounded-full bg-lime-2" />
-            By the numbers
+    <section className="bg-ink py-20 text-white sm:py-24">
+      <div
+        className="absolute inset-x-0 z-0 h-full opacity-50"
+        style={{
+          background:
+            "radial-gradient(50% 50% at 20% 0%, rgba(200,255,62,0.12) 0%, transparent 70%)",
+        }}
+        aria-hidden
+      />
+      <div className="relative mx-auto grid max-w-6xl gap-12 px-6 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+        <div>
+          <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white/70 ring-1 ring-white/15">
+            <span className="h-1.5 w-1.5 rounded-full bg-lime" />
+            Local market focus
           </span>
-          <h2 className="font-display mt-6 text-3xl leading-tight text-ink sm:text-5xl">
-            Operators who&apos;ve actually
-            <br className="hidden sm:block" /> sat in the seat.
+          <h2 className="font-display mt-6 text-4xl leading-[1.02] text-white sm:text-5xl">
+            GROUNDED IN THE
+            <br />
+            <span className="text-lime">LOWCOUNTRY.</span>
           </h2>
-          <p className="mt-5 max-w-xl text-base text-muted">
-            Our team has built and run lending books, provider RCM operations,
-            and advisory back-office stacks. The systems we ship are the ones
-            we wish we&apos;d had.
+          <p className="mt-6 max-w-md text-base text-white/70">
+            We work primarily across the Charleston region — submarkets we
+            know well enough to read past the comps. That context shapes how
+            we package a deal and which capital sources we bring to it.
           </p>
+
+          <div className="mt-8 flex flex-wrap items-center gap-3 text-xs text-white/60">
+            <span className="inline-flex items-center gap-2 rounded-full bg-white/6 px-3 py-1.5 ring-1 ring-white/10">
+              <span className="font-mono text-lime">(843)</span>
+              area code
+            </span>
+            <span className="inline-flex items-center gap-2 rounded-full bg-white/6 px-3 py-1.5 ring-1 ring-white/10">
+              Berkeley · Charleston · Dorchester counties
+            </span>
+          </div>
         </div>
 
-        <div className="mt-14 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4">
-          {stats.map((s) => {
-            const display = s.value.endsWith("+") ? s.value.slice(0, -1) : s.value;
-            const hasPlus = s.value.endsWith("+");
-            return (
-              <div
-                key={s.label}
-                className="border-t-2 border-ink/15 pt-5"
-              >
-                <p className="font-display text-5xl text-ink sm:text-6xl">
-                  {display}
-                  {hasPlus && <span className="text-lime-2">+</span>}
-                </p>
-                <p className="mt-3 max-w-[16ch] text-xs leading-relaxed text-muted">
-                  {s.label}
-                </p>
-              </div>
-            );
-          })}
+        <div className="grid gap-3 sm:grid-cols-2">
+          {submarkets.map((s, i) => (
+            <div
+              key={s.name}
+              className="group relative overflow-hidden rounded-2xl bg-white/6 p-5 ring-1 ring-white/10 transition hover:bg-white/10"
+            >
+              <span className="text-[11px] font-mono uppercase tracking-[0.18em] text-lime">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="font-display mt-2 text-2xl text-white">
+                {s.name}
+              </h3>
+              <p className="mt-1 text-xs text-white/55">{s.detail}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

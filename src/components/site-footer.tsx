@@ -2,89 +2,118 @@ import Link from "next/link";
 
 const columns = [
   {
-    title: "Practice areas",
+    title: "Site",
     links: [
-      "Lending",
-      "Healthcare",
-      "Financial services",
-      "Compliance & audit",
+      { label: "Home", href: "/" },
+      { label: "About", href: "/about" },
+      { label: "Loan Programs", href: "/loan-programs" },
+      { label: "Contact", href: "/contact" },
+      { label: "Start Your Loan Profile", href: "/start" },
     ],
   },
   {
-    title: "Company",
-    links: ["About", "Leadership", "Careers", "Contact"],
-  },
-  {
-    title: "Resources",
-    links: ["Insights", "Case studies", "Security", "Disclosures"],
+    title: "Loan programs",
+    links: [
+      { label: "DSCR", href: "/loan-programs#dscr" },
+      { label: "Fix & Flip", href: "/loan-programs#fix-flip" },
+      { label: "Bridge", href: "/loan-programs#bridge" },
+      { label: "Ground-Up Construction", href: "/loan-programs#ground-up" },
+      { label: "Small Commercial", href: "/loan-programs#small-commercial" },
+      { label: "Rental Portfolio", href: "/loan-programs#rental-portfolio" },
+      { label: "Land", href: "/loan-programs#land" },
+    ],
   },
 ];
 
 export function SiteFooter() {
   return (
     <footer className="bg-ink text-white/70">
-      <div className="mx-auto grid max-w-6xl gap-12 px-6 py-16 lg:grid-cols-[1.4fr_2fr]">
+      <div className="mx-auto grid max-w-6xl gap-12 px-6 py-16 lg:grid-cols-[1.5fr_1fr_1fr_1.1fr]">
         <div>
-          <div className="flex items-center gap-2">
-            <span className="grid h-8 w-8 place-items-center rounded-md bg-lime text-ink">
-              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor">
-                <path d="M12 2l2.39 6.95H22l-6.18 4.49L18.21 22 12 17.77 5.79 22l2.39-8.56L2 8.95h7.61z" />
-              </svg>
+          <Link href="/" className="flex items-baseline gap-1.5">
+            <span className="font-display text-lg text-white">StarrMark</span>
+            <span className="text-[10px] uppercase tracking-[0.28em] text-lime">
+              Solutions
             </span>
-            <span className="font-display text-lg text-white">Starrmark</span>
-          </div>
+          </Link>
           <p className="mt-5 max-w-sm text-sm text-white/55">
-            Engineered digital solutions for businesses ready to grow.
+            Private capital, brokered with judgment. Serving real estate
+            investors across the Carolina Lowcountry.
           </p>
-
-          <div className="mt-8 flex items-center gap-3">
-            {["X", "in", "GH"].map((s) => (
-              <a
-                key={s}
-                href="#"
-                className="grid h-9 w-9 place-items-center rounded-full bg-white/6 text-xs text-white/70 ring-1 ring-white/10 transition hover:bg-white/10 hover:text-white"
-              >
-                {s}
-              </a>
-            ))}
-          </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
-          {columns.map((c) => (
-            <div key={c.title}>
-              <p className="text-xs uppercase tracking-[0.18em] text-white/45">
-                {c.title}
-              </p>
-              <ul className="mt-4 flex flex-col gap-2 text-sm">
-                {c.links.map((l) => (
-                  <li key={l}>
-                    <Link
-                      href="#"
-                      className="text-white/75 transition hover:text-white"
-                    >
-                      {l}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+        {columns.map((c) => (
+          <div key={c.title}>
+            <p className="text-xs uppercase tracking-[0.18em] text-white/45">
+              {c.title}
+            </p>
+            <ul className="mt-4 flex flex-col gap-2 text-sm">
+              {c.links.map((l) => (
+                <li key={l.href + l.label}>
+                  <Link
+                    href={l.href}
+                    className="text-white/75 transition hover:text-white"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+
+        <div>
+          <p className="text-xs uppercase tracking-[0.18em] text-white/45">
+            Contact
+          </p>
+          <ul className="mt-4 flex flex-col gap-2 text-sm">
+            <li>
+              <a
+                href="mailto:hello@starrmarksolutions.com"
+                className="text-white/75 transition hover:text-white"
+              >
+                hello@starrmarksolutions.com
+              </a>
+            </li>
+            <li>
+              <a
+                href="tel:+18430000000"
+                className="text-white/75 transition hover:text-white"
+              >
+                (843) 000-0000
+              </a>
+            </li>
+            <li className="text-white/75">Charleston &amp; the Lowcountry, SC</li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="border-t border-white/10">
+        <div className="mx-auto max-w-6xl px-6 py-8">
+          <p className="text-[11px] leading-relaxed text-white/45">
+            <span className="font-semibold text-white/65">Important disclosure: </span>
+            StarrMark Solutions LLC is a Private Money Broker and Capital
+            Advisor. We are not a lender, mortgage broker, or mortgage banker,
+            and we do not originate, underwrite, fund, or service loans. All
+            financing arranged through StarrMark is for business, commercial,
+            or investment purposes only, secured by non-owner-occupied real
+            estate, and is not intended for personal, family, or household use.
+          </p>
         </div>
       </div>
 
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-3 px-6 py-6 text-xs text-white/45 sm:flex-row sm:items-center">
-          <p>© {new Date().getFullYear()} Starrmark Solutions. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} StarrMark Solutions LLC. All rights reserved.</p>
           <div className="flex items-center gap-5">
-            <Link href="#" className="hover:text-white/70">
+            <Link href="/privacy" className="hover:text-white/70">
               Privacy
             </Link>
-            <Link href="#" className="hover:text-white/70">
+            <Link href="/terms" className="hover:text-white/70">
               Terms
             </Link>
-            <Link href="#" className="hover:text-white/70">
-              Cookies
+            <Link href="/disclosures" className="hover:text-white/70">
+              Disclosures
             </Link>
           </div>
         </div>
