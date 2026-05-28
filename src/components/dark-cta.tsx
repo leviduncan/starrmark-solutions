@@ -20,17 +20,17 @@ export function DarkCTA() {
               <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white/80 ring-1 ring-white/15">
                 Ready when you are
               </span>
-              <h2 className="font-display mt-6 text-4xl leading-[1] text-white sm:text-6xl">
-                LET&apos;S BUILD
+              <h2 className="font-display mt-6 text-4xl leading-none text-white sm:text-6xl">
+                BUILD WITH A
                 <br />
-                SOMETHING THAT
+                PARTNER YOUR
                 <br />
-                <span className="text-lime">COMPOUNDS.</span>
+                <span className="text-lime">EXAMINERS TRUST.</span>
               </h2>
               <p className="mt-6 max-w-md text-base text-white/70">
-                30-minute call, no deck. Bring the messiest part of your
-                business and we&apos;ll tell you whether we&apos;re the right
-                team to fix it.
+                30 minutes, NDA included. Bring the workflow that&apos;s
+                holding back your book — we&apos;ll tell you whether
+                we&apos;re the right team to fix it.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
@@ -38,22 +38,22 @@ export function DarkCTA() {
                   href="#"
                   className="inline-flex h-12 items-center gap-2 rounded-full bg-lime px-6 text-sm font-semibold text-ink transition hover:bg-lime-2"
                 >
-                  Book a 30-min call →
+                  Book a consultation →
                 </Link>
                 <a
-                  href="mailto:hello@starrmark.solutions"
+                  href="mailto:hello@starrmarksolutions.com"
                   className="inline-flex h-12 items-center gap-2 rounded-full bg-white/10 px-5 text-sm font-medium text-white ring-1 ring-white/15 transition hover:bg-white/15"
                 >
-                  hello@starrmark.solutions
+                  hello@starrmarksolutions.com
                 </a>
               </div>
             </div>
 
             <div className="grid grid-cols-2 gap-3">
-              <MetricChip label="Response" value="< 2h" tone="dark" />
-              <MetricChip label="Kickoff" value="2 weeks" tone="lime" />
+              <MetricChip label="Response" value="< 24h" tone="dark" />
+              <MetricChip label="NDA on file" value="Day 1" tone="lime" />
               <MetricChip label="Pilots" value="6 weeks" tone="lime" />
-              <MetricChip label="Retainers" value="From $9k/mo" tone="dark" />
+              <MetricChip label="Compliance" value="SOC 2" tone="dark" />
             </div>
           </div>
         </div>
@@ -78,7 +78,7 @@ function MetricChip({
         "rounded-2xl p-5 ring-1",
         isLime
           ? "bg-lime text-ink ring-lime-2"
-          : "bg-white/[0.06] text-white ring-white/10 backdrop-blur",
+          : "bg-white/6 text-white ring-white/10 backdrop-blur",
       ].join(" ")}
     >
       <p

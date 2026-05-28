@@ -17,21 +17,21 @@ export function Hero() {
         <div className="flex flex-col justify-center">
           <span className="inline-flex w-fit items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white/70 ring-1 ring-white/15">
             <span className="h-1.5 w-1.5 rounded-full bg-lime" />
-            Engineered for growth
+            Lending · Healthcare · Financial Services
           </span>
 
           <h1 className="font-display mt-6 text-5xl leading-[0.95] text-white sm:text-6xl lg:text-[5.25rem]">
-            BUILT FOR
+            PRECISION
             <br />
-            BOLD
+            SOLUTIONS FOR
             <br />
-            BUSINESSES.
+            REGULATED INDUSTRIES.
           </h1>
 
           <p className="mt-7 max-w-md text-base text-white/70 sm:text-lg">
-            Strategy, software, and systems that compound. We help operators
-            ship faster, sell smarter, and scale without breaking the
-            machine.
+            Starrmark partners with lenders, providers, and financial
+            institutions to ship the systems and processes that compliance,
+            scale, and customer trust demand.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -39,44 +39,44 @@ export function Hero() {
               href="#contact"
               className="inline-flex h-12 items-center gap-2 rounded-full bg-lime px-6 text-sm font-semibold text-ink transition hover:bg-lime-2"
             >
-              Start a project
+              Book a consultation
               <span aria-hidden>→</span>
             </Link>
             <Link
-              href="#work"
+              href="#solutions"
               className="inline-flex h-12 items-center gap-2 rounded-full bg-white/10 px-5 text-sm font-medium text-white ring-1 ring-white/15 backdrop-blur transition hover:bg-white/20"
             >
               <span className="grid h-6 w-6 place-items-center rounded-full bg-white text-ink">
                 <PlayIcon />
               </span>
-              See our work
+              Explore our solutions
             </Link>
           </div>
 
           <div className="mt-12">
             <p className="text-xs uppercase tracking-[0.2em] text-white/40">
-              Trusted by teams at
+              Built for the standards of
             </p>
             <div className="mt-4 flex flex-wrap items-center gap-x-7 gap-y-3 text-white/55">
-              <LogoMark>Helios</LogoMark>
-              <LogoMark>Ironbark</LogoMark>
-              <LogoMark>Northwind</LogoMark>
-              <LogoMark>Pelagic</LogoMark>
+              <LogoMark>SOC 2</LogoMark>
+              <LogoMark>HIPAA</LogoMark>
+              <LogoMark>PCI&nbsp;DSS</LogoMark>
+              <LogoMark>GLBA</LogoMark>
             </div>
           </div>
         </div>
 
         <div className="relative grid grid-cols-2 gap-4">
           <StatCard
-            label="Avg. uplift"
-            value="3.4×"
-            sub="revenue per visitor in 90 days"
+            label="Loans funded"
+            value="$2.4B"
+            sub="originated through our platforms"
             tone="dark"
           />
           <StatCard
-            label="Active engagements"
-            value="42"
-            sub="across SaaS, fintech & ops"
+            label="Claims processed"
+            value="1.8M"
+            sub="across 240+ provider locations"
             tone="lime"
           />
           <DashboardCard className="col-span-2" />
@@ -104,7 +104,7 @@ function StatCard({
         "relative flex flex-col justify-between overflow-hidden rounded-2xl p-5 ring-1 ring-inset",
         isLime
           ? "bg-lime text-ink ring-lime-2"
-          : "bg-white/[0.06] text-white ring-white/10 backdrop-blur",
+          : "bg-white/6 text-white ring-white/10 backdrop-blur",
       ].join(" ")}
     >
       <div className="flex items-start justify-between">
@@ -146,21 +146,21 @@ function DashboardCard({ className = "" }: { className?: string }) {
   return (
     <div
       className={
-        "relative overflow-hidden rounded-2xl bg-white/[0.05] p-5 ring-1 ring-inset ring-white/10 backdrop-blur " +
+        "relative overflow-hidden rounded-2xl bg-white/5 p-5 ring-1 ring-inset ring-white/10 backdrop-blur " +
         className
       }
     >
       <div className="flex items-start justify-between">
         <div>
           <p className="text-xs uppercase tracking-[0.18em] text-white/55">
-            This quarter
+            Originations · this quarter
           </p>
           <p className="font-display mt-2 text-3xl text-white">
-            $1.84M <span className="text-white/40">/ $2.0M</span>
+            $84.2M <span className="text-white/40">/ $100M target</span>
           </p>
         </div>
         <div className="flex items-center gap-1.5 rounded-full bg-lime/15 px-2.5 py-1 text-xs font-medium text-lime ring-1 ring-lime/30">
-          <span>▲</span> 24.6%
+          <span>▲</span> 18.4%
         </div>
       </div>
 
@@ -186,13 +186,13 @@ function DashboardCard({ className = "" }: { className?: string }) {
 
       <div className="mt-5 grid grid-cols-3 gap-3 text-xs">
         {[
-          { k: "Pipeline", v: "$612K" },
-          { k: "Closed", v: "$1.23M" },
-          { k: "Velocity", v: "1.9d" },
+          { k: "Approval rate", v: "82.4%" },
+          { k: "Time to fund", v: "1.9d" },
+          { k: "Default rate", v: "0.34%" },
         ].map((m) => (
           <div
             key={m.k}
-            className="rounded-lg bg-white/[0.04] px-3 py-2 ring-1 ring-white/5"
+            className="rounded-lg bg-white/4 px-3 py-2 ring-1 ring-white/5"
           >
             <p className="text-white/50">{m.k}</p>
             <p className="mt-0.5 font-display text-base text-white">{m.v}</p>

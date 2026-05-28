@@ -1,18 +1,18 @@
 const services = [
   {
-    tag: "01 / Product",
-    title: "SaaS & internal tools",
-    body: "Web apps, dashboards, and admin systems built with Next.js, TypeScript, and the data layer you already have.",
+    tag: "01 / Lending",
+    title: "Loan origination & servicing",
+    body: "Application flows, KYC/KYB, decision engines, and servicing portals — connected to your funding sources and credit policies, not built around them.",
   },
   {
-    tag: "02 / Marketing",
-    title: "Sites that actually convert",
-    body: "Headless WordPress + Next.js, edge-cached and instrumented. Faster than a JAMstack template, easier than a custom CMS.",
+    tag: "02 / Healthcare",
+    title: "Revenue cycle management",
+    body: "Eligibility verification, claims, denial workflows, and patient billing. Reduce A/R days without dropping below the compliance floor.",
   },
   {
-    tag: "03 / Operations",
-    title: "Workflow automation",
-    body: "Cut hours out of finance, ops, and CS with workflows that talk to your stack instead of your team.",
+    tag: "03 / Financial Services",
+    title: "Back-office automation",
+    body: "Client onboarding, performance reporting, and reconciliation built for RIAs, brokers, and family offices. Examiner-ready by default.",
   },
 ];
 
@@ -23,16 +23,16 @@ export function Services() {
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div className="max-w-xl">
             <span className="inline-flex items-center gap-2 rounded-full bg-cream px-3 py-1 text-xs uppercase tracking-[0.2em] text-ink/70 ring-1 ring-rule">
-              Our services
+              How we deliver
             </span>
             <h2 className="font-display mt-6 text-4xl leading-tight text-ink sm:text-5xl">
-              Services to grow and
-              <br /> secure your business.
+              Solutions to grow and
+              <br /> secure your book.
             </h2>
           </div>
           <p className="max-w-sm text-sm text-muted">
-            Three tracks, one team. Pick a single engagement or run them in
-            parallel — pricing and scope adapts to what you actually need.
+            Three practice areas, one team. Each engagement bundles strategy,
+            implementation, and a 24-month operating roadmap.
           </p>
         </div>
 
@@ -69,7 +69,7 @@ function ServiceCard({
         <h3 className="font-display text-2xl text-ink">{title}</h3>
         <p className="text-sm leading-relaxed text-muted">{body}</p>
         <div className="mt-4 flex items-center gap-2 text-sm font-medium text-ink">
-          See examples
+          Talk to our team
           <span aria-hidden className="transition group-hover:translate-x-0.5">
             →
           </span>
@@ -98,9 +98,9 @@ function ServiceArt({ variant }: { variant: number }) {
           />
         ))}
         <div className="absolute inset-x-3 bottom-3 flex items-center justify-between rounded-lg bg-paper/95 px-3 py-2 text-xs text-ink">
-          <span className="font-medium">Pipeline</span>
+          <span className="font-medium">Funded volume</span>
           <span className="rounded-full bg-lime px-2 py-0.5 text-[11px] font-semibold">
-            +12.4%
+            +18.4%
           </span>
         </div>
       </div>
@@ -128,21 +128,24 @@ function ServiceArt({ variant }: { variant: number }) {
             strokeWidth="2.5"
           />
         </svg>
+        <div className="pointer-events-none absolute right-3 top-3 rounded-md bg-paper/90 px-2 py-1 text-[10px] font-medium uppercase tracking-wider text-ink ring-1 ring-rule">
+          A/R days ↓
+        </div>
       </div>
     );
   }
   return (
     <div className="absolute inset-0 grid grid-cols-3 grid-rows-3 gap-2 bg-ink p-3">
       {[
-        "lead",
-        "qualify",
-        "win",
-        "kickoff",
-        "ship",
-        "expand",
-        "QBR",
+        "intake",
+        "KYC",
+        "fund",
+        "report",
+        "ACAT",
+        "rebal",
+        "review",
+        "audit",
         "renew",
-        "advocate",
       ].map((step, i) => (
         <div
           key={step}

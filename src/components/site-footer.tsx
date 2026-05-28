@@ -2,16 +2,21 @@ import Link from "next/link";
 
 const columns = [
   {
-    title: "Solutions",
-    links: ["Product", "Marketing", "Operations", "Data & AI"],
+    title: "Practice areas",
+    links: [
+      "Lending",
+      "Healthcare",
+      "Financial services",
+      "Compliance & audit",
+    ],
   },
   {
     title: "Company",
-    links: ["About", "Work", "Careers", "Contact"],
+    links: ["About", "Leadership", "Careers", "Contact"],
   },
   {
     title: "Resources",
-    links: ["Insights", "Case studies", "Pricing", "FAQ"],
+    links: ["Insights", "Case studies", "Security", "Disclosures"],
   },
 ];
 
@@ -37,7 +42,7 @@ export function SiteFooter() {
               <a
                 key={s}
                 href="#"
-                className="grid h-9 w-9 place-items-center rounded-full bg-white/[0.06] text-xs text-white/70 ring-1 ring-white/10 transition hover:bg-white/10 hover:text-white"
+                className="grid h-9 w-9 place-items-center rounded-full bg-white/6 text-xs text-white/70 ring-1 ring-white/10 transition hover:bg-white/10 hover:text-white"
               >
                 {s}
               </a>

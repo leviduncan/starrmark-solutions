@@ -4,7 +4,7 @@ export function TrustHeading() {
       <div className="mx-auto max-w-4xl px-6 text-center">
         <span className="inline-flex items-center gap-2 rounded-full bg-cream px-3 py-1 text-xs uppercase tracking-[0.2em] text-ink/70 ring-1 ring-rule">
           <span className="h-1.5 w-1.5 rounded-full bg-lime-2" />
-          Why teams pick us
+          Built for regulated industries
         </span>
         <h2 className="font-display mt-6 text-4xl leading-[1.02] text-ink sm:text-6xl">
           OPERATE WITH
@@ -12,50 +12,66 @@ export function TrustHeading() {
           EXACTING PRECISION.
         </h2>
         <p className="mx-auto mt-6 max-w-2xl text-base text-muted sm:text-lg">
-          A senior crew of operators, engineers, and designers who&apos;ve built
-          and sold the kind of business you&apos;re building. No layered agencies,
-          no junior pyramid — just the people doing the work.
+          Lending, healthcare, and financial services live or die on
+          repeatable accuracy. We design systems where compliance,
+          auditability, and customer experience aren&apos;t three competing
+          tradeoffs — they&apos;re the same job.
         </p>
+
+        <div className="mx-auto mt-10 flex flex-wrap items-center justify-center gap-2 text-xs">
+          {["SOC 2 Type II", "HIPAA", "PCI DSS", "GLBA", "State NMLS"].map(
+            (b) => (
+              <span
+                key={b}
+                className="inline-flex items-center gap-1.5 rounded-full bg-cream px-3 py-1 font-medium text-ink/75 ring-1 ring-rule"
+              >
+                <span className="h-1.5 w-1.5 rounded-full bg-lime-2" />
+                {b}
+              </span>
+            )
+          )}
+        </div>
       </div>
 
       <div className="mx-auto mt-16 grid max-w-6xl gap-5 px-6 lg:grid-cols-3">
         <FeatureCard variant="dark">
           <p className="text-xs uppercase tracking-[0.2em] text-lime">
-            Defend
+            Portfolio
           </p>
           <h3 className="font-display mt-3 text-2xl text-white">
-            Margin you can see.
+            Risk you can see in real time.
           </h3>
           <p className="mt-2 text-sm text-white/65">
-            Live dashboards across acquisition, retention, and unit economics
-            — so the next call is obvious.
+            Live dashboards across originations, delinquency, and concentration
+            — so credit and ops see the same number at the same time.
           </p>
           <ChartArt />
         </FeatureCard>
 
         <FeatureCard variant="light">
           <p className="text-xs uppercase tracking-[0.2em] text-ink/60">
-            Secure
+            Collections
           </p>
           <h3 className="font-display mt-3 text-2xl text-ink">
-            Pipeline you can trust.
+            Recovery you can forecast.
           </h3>
           <p className="mt-2 text-sm text-muted">
-            Forecasting tied to real telemetry, not vibes. Promised dates that
-            ship.
+            Roll rates, cure curves, and bucket movement — modeled per
+            portfolio segment, not as a single average that hides the tails.
           </p>
           <RingArt />
         </FeatureCard>
 
         <FeatureCard variant="light">
           <p className="text-xs uppercase tracking-[0.2em] text-ink/60">
-            Grow
+            Revenue cycle
           </p>
           <h3 className="font-display mt-3 text-2xl text-ink">
-            Revenue you can compound.
+            Claims you can close.
           </h3>
           <p className="mt-2 text-sm text-muted">
-            Tested playbooks, not novel theatre. Every win turns into a system.
+            From eligibility to denial appeal, with the payer mix tracked
+            against your actual book — not last year&apos;s benchmark.
           </p>
           <LedgerArt />
         </FeatureCard>
@@ -109,7 +125,7 @@ function ChartArt() {
 }
 
 function RingArt() {
-  const pct = 0.7;
+  const pct = 0.82;
   const r = 42;
   const c = 2 * Math.PI * r;
   return (
@@ -138,9 +154,9 @@ function RingArt() {
         </svg>
         <div className="absolute inset-0 grid place-items-center">
           <div className="text-center">
-            <p className="font-display text-2xl text-ink">70%</p>
+            <p className="font-display text-2xl text-ink">82%</p>
             <p className="text-[10px] uppercase tracking-wider text-muted">
-              in process
+              cure rate
             </p>
           </div>
         </div>
@@ -155,18 +171,18 @@ function LedgerArt() {
       <div className="rounded-xl bg-paper p-3 ring-1 ring-rule">
         <div className="flex items-center justify-between">
           <span className="text-[11px] uppercase tracking-wider text-muted">
-            Net income
+            Net collections
           </span>
           <span className="rounded-full bg-lime-soft px-2 py-0.5 text-[10px] font-medium text-ink">
-            +28.6%
+            +18.4%
           </span>
         </div>
-        <p className="font-display mt-1 text-2xl text-ink">$234.98K</p>
+        <p className="font-display mt-1 text-2xl text-ink">$3.41M</p>
       </div>
       <div className="rounded-xl bg-paper p-3 ring-1 ring-rule">
         <div className="flex items-center justify-between text-[11px] uppercase tracking-wider text-muted">
-          <span>MRR</span>
-          <span>+9.4%</span>
+          <span>Days in A/R</span>
+          <span>27.4</span>
         </div>
         <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-rule">
           <div
