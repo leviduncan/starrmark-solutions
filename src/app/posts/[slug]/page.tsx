@@ -6,8 +6,16 @@ import { getAllPostSlugs, getPostBySlug } from "@/lib/wp";
 type Params = Promise<{ slug: string }>;
 
 export async function generateStaticParams() {
-  const slugs = await getAllPostSlugs();
-  return slugs.map((slug) => ({ slug }));
+  try {
+    const slugs = await getAllPostSlugs();
+    return slugs.map((slug) => ({ slug }));
+  } catch (err) {
+    console.warn(
+      "[wp] generateStaticParams failed; pages will render on-demand.",
+      err instanceof Error ? err.message : err
+    );
+    return [];
+  }
 }
 
 export async function generateMetadata({ params }: { params: Params }) {

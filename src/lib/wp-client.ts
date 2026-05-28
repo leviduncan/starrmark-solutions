@@ -1,10 +1,12 @@
 import { GraphQLClient } from "graphql-request";
 
-const endpoint = process.env.WORDPRESS_GRAPHQL_ENDPOINT;
+const endpoint = process.env.WORDPRESS_GRAPHQL_ENDPOINT ?? "";
 
-if (!endpoint) {
-  throw new Error(
-    "WORDPRESS_GRAPHQL_ENDPOINT is not set. Add it to .env.local — e.g. https://your-wp-site.com/graphql"
+export const isWpConfigured = Boolean(endpoint);
+
+if (!isWpConfigured && process.env.NODE_ENV !== "production") {
+  console.warn(
+    "[wp] WORDPRESS_GRAPHQL_ENDPOINT is not set. WP-backed pages will render empty until you add it to .env.local (or your hosting env)."
   );
 }
 
